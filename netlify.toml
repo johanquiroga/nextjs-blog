@@ -16,3 +16,18 @@
 
   # Directory with the serverless Lambda functions to deploy to AWS.
   # functions = "functions/"
+
+[context.production.environment]
+  NEXT_PUBLIC_API_URL = "PROD"
+
+[context.deploy-preview.environment]
+  NEXT_PUBLIC_API_URL = "PRE-PROD or QA(1)"
+
+[context.branch-deploy.environment]
+  NEXT_PUBLIC_API_URL = "MOCK or DEVELOPMENT"
+
+[context."feat/*".environment]
+  NEXT_PUBLIC_API_URL = "QA or QA1"
+
+[context.development.environment]
+  NEXT_PUBLIC_API_URL = "DEVELOPMENT or QA"
