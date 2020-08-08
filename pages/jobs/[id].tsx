@@ -27,6 +27,7 @@ export const getStaticProps: GetStaticProps<{job: JobData}> = async ({ params: {
 }
 
 function Job({ job }: { job: JobData }) {
+  // Caveat of next-on-netlify is that fallbacks won't trigger. Instead it will behave as a SSR page
   const { isFallback } = useRouter();
 
   return (
