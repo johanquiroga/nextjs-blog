@@ -1,19 +1,21 @@
 module.exports = {
-  roots: ["<rootDir>"],
   moduleFileExtensions: ["ts", "tsx", "js"],
-  testPathIgnorePatterns: ["<rootDir>[/\\\\](node_modules|.next)[/\\\\]"],
-  transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$"],
   transform: {
-    "^.+\\.(ts|tsx)$": "babel-jest",
+    "^.+\\.tsx?$": "ts-jest",
   },
-  setupFilesAfterEnv: ["<rootDir>/setupTests.ts"],
-  watchPlugins: [
-    "jest-watch-typeahead/filename",
-    "jest-watch-typeahead/testname",
+  testMatch: ["**/*.(test|spec).(ts|tsx)"],
+  globals: {
+    "ts-jest": {
+      tsConfig: "jest.tsconfig.json",
+    },
+  },
+  testPathIgnorePatterns: ["/node_modules/", "/.next/"],
+  transformIgnorePatterns: [
+    "/node_modules/",
+    "^.+\\.module\\.(css|sass|scss)$",
   ],
   moduleNameMapper: {
-    "\\.(css|less|sass|scss)$": "identity-obj-proxy",
-    "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/__mocks__/fileMock.js",
+    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
   },
   moduleDirectories: [
     "node_modules",
@@ -21,4 +23,5 @@ module.exports = {
     "test", // a utility folder
     __dirname, // the root directory
   ],
+  setupFilesAfterEnv: ["<rootDir>/setupTests.ts"],
 };
