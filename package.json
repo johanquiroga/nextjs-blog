@@ -10,7 +10,7 @@
     "test": "jest --watch"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "date-fns": "^2.15.0",
     "formik": "^2.1.5",
     "gray-matter": "^4.0.2",
